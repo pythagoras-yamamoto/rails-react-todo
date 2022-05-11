@@ -5,12 +5,12 @@ class Api::V1::TodosController < ApplicationController
   end
 
   def show
-    todo = Todo.find(param[:id])
+    todo = Todo.find(params[:id])
     render json: todo
   end
 
   def create
-    todo = Todo.find(params[:id])
+    todo = Todo.new(todo_params)
     if todo.save
       render json: todo
     else
